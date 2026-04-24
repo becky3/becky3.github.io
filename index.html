@@ -4,7 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="becky のポートフォリオサイト。フリーランスエンジニア。">
+  <meta property="og:title" content="becky — Portfolio">
+  <meta property="og:description" content="フリーランスエンジニア becky のポートフォリオ。ゲーム・XR・モバイル・AI 駆動開発。">
+  <meta property="og:image" content="https://github.com/becky3.png">
+  <meta property="og:url" content="https://becky3.github.io/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
   <title>becky — Portfolio</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -26,23 +33,30 @@
     <a href="https://bsky.app/profile/rhythmcan.bsky.social" target="_blank" rel="noopener" aria-label="Bluesky">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M5.202 2.857C7.954 4.922 10.913 9.11 12 11.358c1.087-2.247 4.046-6.436 6.798-8.501C20.783 1.366 24 .213 24 3.883c0 .732-.42 6.156-.667 7.037-.856 3.061-3.978 3.842-6.755 3.37 4.854.826 6.089 3.562 3.422 6.299-5.065 5.196-7.28-1.304-7.847-2.97-.104-.305-.152-.448-.153-.327 0-.121-.05.022-.153.327-.568 1.666-2.782 8.166-7.847 2.97-2.667-2.737-1.432-5.473 3.422-6.3-2.777.473-5.899-.308-6.755-3.369C.42 10.04 0 4.615 0 3.883c0-3.67 3.217-2.517 5.202-1.026"/></svg>
     </a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSecye5R1da1hIwMXRqPB3noouXiBTcb_LoR3Vm5Fpdz70DSGQ/viewform" target="_blank" rel="noopener" aria-label="Contact">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+    </a>
   </div>
 </header>
 
 <nav class="tabs" role="tablist" aria-label="セクション">
   <button role="tab" class="tab is-active" data-target="about" aria-selected="true">About</button>
   <button role="tab" class="tab" data-target="skills" aria-selected="false">Skills</button>
-  <button role="tab" class="tab" data-target="experience" aria-selected="false">Experience</button>
-  <button role="tab" class="tab" data-target="projects" aria-selected="false">Projects</button>
-  <button role="tab" class="tab" data-target="articles" aria-selected="false">Articles</button>
-  <button role="tab" class="tab" data-target="videos" aria-selected="false">Videos</button>
-  <button role="tab" class="tab" data-target="links" aria-selected="false">Links</button>
+  <button role="tab" class="tab" data-target="works" aria-selected="false">Works</button>
+  <button role="tab" class="tab" data-target="contact" aria-selected="false">Contact</button>
 </nav>
 
 <main>
 
 <section id="about" class="panel is-active" role="tabpanel">
   <h2>About</h2>
+  <div class="about-tags">
+    <span>20年以上の開発経験</span>
+    <span>ゲーム / XR</span>
+    <span>モバイルアプリ</span>
+    <span>AI 駆動開発</span>
+    <span>フリーランス</span>
+  </div>
   <p>
     ソフトウェア開発で 20 年以上の実務経験があります。ゲーム・メタバース・モバイル・業務システムなど幅広い領域で開発に携わり、
     現在は AI 駆動開発に注力しています。屋号 <strong>Rhythmcan</strong> として個人事業主の形態で活動中。
@@ -50,6 +64,10 @@
   <p>
     直近は Claude Code を用いた自動開発パイプラインを構築し、仕様策定・設計判断・品質管理に専念しながら、
     RAG・MCP 連携を備えた Slack AI アシスタントとマルチソース対応の RAG ナレッジサービスを個人開発しています。
+  </p>
+  <p>
+    現場の課題を発見し改善を推進することを得意としており、新技術を独学で習得して実務に展開してきた実績があります。
+    UE5 は未経験から体系的に学習し、大規模チームでの開発に合流。UI 実装の中心を担うまでに成長しました。
   </p>
 </section>
 
@@ -76,9 +94,7 @@
     <li>新技術の独学 → 実務への展開</li>
     <li>企画〜開発〜運用までの一気通貫対応</li>
   </ul>
-</section>
 
-<section id="experience" class="panel" role="tabpanel" hidden>
   <h2>Experience</h2>
   <p class="section-note">これまでに携わった主なプロダクト種別です。</p>
 
@@ -86,27 +102,27 @@
   <div class="cards">
     <article class="card">
       <h4>メタバース / 3D アプリ開発</h4>
-      <p>UE5・Blueprint・C++ を使用。UI 実装・API 連携・マルチプレイヤーライブラリ組み込み・Jenkins による自動ビルド環境構築を担当。</p>
+      <p>複数人が同時に参加できるメタバース空間の開発。UI 全般の実装と自動ビルド環境の構築を担当。</p>
     </article>
     <article class="card">
       <h4>コンシューマゲーム移植</h4>
-      <p>UE4 を用いた PC → 据え置き機への移植、海外版対応を担当。リリース直前のバグ対応を中心に品質向上に貢献。</p>
+      <p>PC 向けオンラインゲームの据え置き機・海外版への展開。品質向上に向けたバグ対応を担当。</p>
     </article>
     <article class="card">
       <h4>VR 体験アプリ開発</h4>
-      <p>Unity + Oculus DK2 + Kinect を用いた VR アプリを、企画・開発・デザイン・運用まで一人で兼任。商用運用実績あり。</p>
+      <p>企画・開発・デザイン・運用まで一人で兼任した VR 体験アプリ。テーマパーク等で商用運用。</p>
     </article>
     <article class="card">
       <h4>スマートフォン向けゲーム開発</h4>
-      <p>Unity・C# を用いたスマホゲームの企画から運用までを担当。オブジェクトプールの自前実装等でパフォーマンスを改善。</p>
+      <p>スマホゲームの企画から運用まで一貫対応。表示パフォーマンスの改善にも取り組む。</p>
     </article>
     <article class="card">
       <h4>携帯ゲーム機向けゲーム開発</h4>
-      <p>C++ を用いた PSP・Nintendo DS 向けゲーム開発。動画再生ライブラリやシナリオ用スクリプト機能等を担当。</p>
+      <p>PSP・Nintendo DS 向けゲームの開発。動画再生やシナリオ進行の仕組みを担当。</p>
     </article>
     <article class="card">
       <h4>スマホゲーム関連アプリ</h4>
-      <p>Swift・RxSwift による長期参画型の機能開発。ミュージックプレイヤー・イベント管理機能等の主要機能を実装。</p>
+      <p>大規模ゲームタイトルのコンパニオンアプリ開発。音楽プレイヤーやイベント機能など主要機能を実装。</p>
     </article>
   </div>
 
@@ -114,19 +130,19 @@
   <div class="cards">
     <article class="card">
       <h4>災害シミュレーションアプリ</h4>
-      <p>UE5 / Blueprint。単独でエンジンバージョン移行・エフェクト追加・データ変換処理の最適化を担当し、処理時間を大幅に短縮。</p>
+      <p>自治体向け津波災害シミュレーションの開発。エンジン移行とデータ処理の最適化で処理時間を大幅に短縮。</p>
     </article>
     <article class="card">
       <h4>Fintech・決済系アプリ</h4>
-      <p>Swift・RxSwift・Alamofire を使用。チームリードとしてコード品質改善（SwiftLint 導入）や設計見直しに従事。</p>
+      <p>クレジットカード管理アプリの開発・改善。チームリードとしてコード品質の立て直しを推進。</p>
     </article>
     <article class="card">
       <h4>注文プラットフォームアプリ</h4>
-      <p>Swift + Kotlin（AppClip / インスタントアプリ）を用いたマルチプラットフォーム開発。リード・新人教育を担当。</p>
+      <p>iOS / Android 両対応の注文アプリ開発。リーダーとして新人教育も担当。</p>
     </article>
     <article class="card">
       <h4>業務システム開発</h4>
-      <p>ASP.NET・PHP による BtoB 業務システム複数件（業務管理・帳票・検索系）を、要件整理から運用まで一貫対応。</p>
+      <p>業務管理・帳票・検索など複数の BtoB システムを要件整理から運用まで一貫対応。</p>
     </article>
   </div>
 
@@ -155,8 +171,10 @@
   </div>
 </section>
 
-<section id="projects" class="panel" role="tabpanel" hidden>
-  <h2>Projects</h2>
+<section id="works" class="panel" role="tabpanel" hidden>
+  <h2>Works</h2>
+
+  <h3>Projects</h3>
   <p class="section-note">GitHub で公開している個人開発プロジェクトです。</p>
   <ul class="entry-list">
     <li>
@@ -168,23 +186,37 @@
       <p>マルチソース対応の RAG ナレッジサービス（MCP サーバー）。ベクトル検索 + BM25 ハイブリッド検索、Web / Zenn / YouTube / PDF からの自動取り込みに対応。</p>
     </li>
   </ul>
-</section>
 
-<section id="articles" class="panel" role="tabpanel" hidden>
-  <h2>Articles</h2>
+  <h3>Articles</h3>
   <p class="section-note">Zenn で公開している記事のピックアップです。</p>
   <ul class="entry-list">
-    <li><a href="https://zenn.dev/rhythmcan/articles/32ca647bd2753c" target="_blank" rel="noopener"><strong>Issue にラベルを貼るだけ — 実装・レビュー・マージを全自動化するパイプラインを作った</strong></a></li>
-    <li><a href="https://zenn.dev/rhythmcan/articles/3bb5d6704359f5" target="_blank" rel="noopener"><strong>MCP：小さな規格の仕組みと特徴</strong></a></li>
-    <li><a href="https://zenn.dev/rhythmcan/articles/40da82caa3e788" target="_blank" rel="noopener"><strong>CLAUDE.md に「このファイルを読め」と書いても読まれない — @import 構文で解決する</strong></a></li>
-    <li><a href="https://zenn.dev/rhythmcan/articles/b65892fa13dbf4" target="_blank" rel="noopener"><strong>安野貴博氏のブロードリスニングを支える技術スタックを動画の発言から推測してみた</strong></a></li>
-    <li><a href="https://zenn.dev/rhythmcan/articles/5ca92c9065f880" target="_blank" rel="noopener"><strong>Anthropic Claude Cowork 活用事例レポート</strong></a></li>
-    <li><a href="https://zenn.dev/rhythmcan/articles/504678bdd8b5bf" target="_blank" rel="noopener"><strong>UE5.1 で 3D アクション「ORION CREST」を制作</strong></a></li>
+    <li>
+      <a href="https://zenn.dev/rhythmcan/articles/32ca647bd2753c" target="_blank" rel="noopener"><strong>Issue にラベルを貼るだけ — 実装・レビュー・マージを全自動化するパイプラインを作った</strong></a>
+      <p>GitHub Issues のラベル操作をトリガーに、実装からマージまでを自動化する開発パイプラインの構築事例。</p>
+    </li>
+    <li>
+      <a href="https://zenn.dev/rhythmcan/articles/3bb5d6704359f5" target="_blank" rel="noopener"><strong>MCP：小さな規格の仕組みと特徴</strong></a>
+      <p>Model Context Protocol の基本的な仕組みと、LLM ツール連携における位置づけを解説。</p>
+    </li>
+    <li>
+      <a href="https://zenn.dev/rhythmcan/articles/40da82caa3e788" target="_blank" rel="noopener"><strong>CLAUDE.md に「このファイルを読め」と書いても読まれない — @import 構文で解決する</strong></a>
+      <p>Claude Code の CLAUDE.md でファイル参照が機能しない問題と、@import 構文による解決方法。</p>
+    </li>
+    <li>
+      <a href="https://zenn.dev/rhythmcan/articles/b65892fa13dbf4" target="_blank" rel="noopener"><strong>安野貴博氏のブロードリスニングを支える技術スタックを動画の発言から推測してみた</strong></a>
+      <p>ブロードリスニングの仕組みを動画内の発言から技術スタックを推測・分析。</p>
+    </li>
+    <li>
+      <a href="https://zenn.dev/rhythmcan/articles/5ca92c9065f880" target="_blank" rel="noopener"><strong>Anthropic Claude Cowork 活用事例レポート</strong></a>
+      <p>Anthropic の Claude Cowork 機能を実際のプロジェクトで活用した事例レポート。</p>
+    </li>
+    <li>
+      <a href="https://zenn.dev/rhythmcan/articles/504678bdd8b5bf" target="_blank" rel="noopener"><strong>UE5.1 で 3D アクション「ORION CREST」を制作</strong></a>
+      <p>Unreal Engine 5.1 で制作した 3D アクションゲームのデモ作品の制作過程。</p>
+    </li>
   </ul>
-</section>
 
-<section id="videos" class="panel" role="tabpanel" hidden>
-  <h2>Videos</h2>
+  <h3>Videos</h3>
   <p class="section-note">YouTube で公開している動画のピックアップです。</p>
   <div class="youtube-grid">
     <a href="https://www.youtube.com/watch?v=mDQcVP-nUIU" target="_blank" rel="noopener" class="youtube-card">
@@ -246,8 +278,14 @@
   </div>
 </section>
 
-<section id="links" class="panel" role="tabpanel" hidden>
-  <h2>Links</h2>
+<section id="contact" class="panel" role="tabpanel" hidden>
+  <h2>Contact</h2>
+
+  <h3>お問い合わせ</h3>
+  <p>お仕事のご相談・ご質問など、お気軽にお問い合わせください。</p>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSecye5R1da1hIwMXRqPB3noouXiBTcb_LoR3Vm5Fpdz70DSGQ/viewform" target="_blank" rel="noopener" class="contact-button">お問い合わせフォームを開く</a>
+
+  <h3>Links</h3>
   <ul class="link-list">
     <li><a href="https://github.com/becky3" target="_blank" rel="noopener">GitHub</a></li>
     <li><a href="https://zenn.dev/rhythmcan" target="_blank" rel="noopener">Zenn</a></li>

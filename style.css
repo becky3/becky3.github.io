@@ -9,6 +9,7 @@
   --color-border: #e5e7eb;
   --color-accent: #4f46e5;
   --color-accent-soft: #eef2ff;
+  --color-border-hover: #c7d2fe;
   --color-link: #4338ca;
   --color-link-hover: #312e81;
   --gradient-brand: #6366f1, #ec4899;
@@ -97,7 +98,7 @@ header.profile .title {
 .social-links a:hover {
   background: var(--color-card);
   color: var(--color-accent);
-  border-color: #c7d2fe;
+  border-color: var(--color-border-hover);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
   text-decoration: none;
@@ -320,7 +321,7 @@ section p {
 .entry-list li:hover {
   transform: translateY(-1px);
   box-shadow: var(--shadow-md);
-  border-color: #c7d2fe;
+  border-color: var(--color-border-hover);
 }
 
 .entry-list li a {
@@ -366,7 +367,7 @@ section p {
 .youtube-card:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-md);
-  border-color: #c7d2fe;
+  border-color: var(--color-border-hover);
   text-decoration: none;
 }
 
@@ -446,37 +447,6 @@ section p {
   .youtube-title {
     font-size: 0.82rem;
   }
-}
-
-/* Links */
-.link-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.link-list li a {
-  display: inline-block;
-  padding: 10px 18px;
-  border: 1px solid var(--color-border);
-  border-radius: 999px;
-  background: var(--color-card);
-  color: var(--color-text);
-  font-size: 0.9rem;
-  font-weight: 500;
-  text-decoration: none;
-  transition: background 0.15s, border-color 0.15s, color 0.15s, transform 0.15s;
-  box-shadow: var(--shadow-sm);
-}
-
-.link-list li a:hover {
-  background: var(--color-accent-soft);
-  border-color: var(--color-accent);
-  color: var(--color-accent);
-  transform: translateY(-1px);
 }
 
 /* Contact */

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="becky のポートフォリオサイト。フリーランスエンジニア。">
+  <title>becky — Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="profile">
+  <img class="avatar" src="https://github.com/becky3.png" alt="avatar" width="120" height="120">
+  <h1>becky</h1>
+  <p class="title">フリーランスエンジニア</p>
+  <div class="social-links">
+    <a href="https://github.com/becky3" target="_blank" rel="noopener" aria-label="GitHub">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+    </a>
+    <a href="https://zenn.dev/rhythmcan" target="_blank" rel="noopener" aria-label="Zenn">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M.264 23.771h4.984c.264 0 .498-.147.645-.352L19.614.874c.176-.293-.029-.645-.381-.645h-4.72c-.235 0-.44.117-.557.323L.03 23.361c-.088.176.029.41.234.41zM17.445 23.419l6.479-10.408c.205-.323-.029-.733-.41-.733h-4.691c-.176 0-.352.088-.44.235l-6.655 10.643c-.176.264.029.616.352.616h4.779c.234-.001.468-.118.586-.353z"/></svg>
+    </a>
+    <a href="https://www.youtube.com/@rhythmcan" target="_blank" rel="noopener" aria-label="YouTube">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+    </a>
+    <a href="https://bsky.app/profile/rhythmcan.bsky.social" target="_blank" rel="noopener" aria-label="Bluesky">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M5.202 2.857C7.954 4.922 10.913 9.11 12 11.358c1.087-2.247 4.046-6.436 6.798-8.501C20.783 1.366 24 .213 24 3.883c0 .732-.42 6.156-.667 7.037-.856 3.061-3.978 3.842-6.755 3.37 4.854.826 6.089 3.562 3.422 6.299-5.065 5.196-7.28-1.304-7.847-2.97-.104-.305-.152-.448-.153-.327 0-.121-.05.022-.153.327-.568 1.666-2.782 8.166-7.847 2.97-2.667-2.737-1.432-5.473 3.422-6.3-2.777.473-5.899-.308-6.755-3.369C.42 10.04 0 4.615 0 3.883c0-3.67 3.217-2.517 5.202-1.026"/></svg>
+    </a>
+  </div>
+</header>
+
+<nav class="tabs" role="tablist" aria-label="セクション">
+  <button role="tab" class="tab is-active" data-target="about" aria-selected="true">About</button>
+  <button role="tab" class="tab" data-target="skills" aria-selected="false">Skills</button>
+  <button role="tab" class="tab" data-target="experience" aria-selected="false">Experience</button>
+  <button role="tab" class="tab" data-target="projects" aria-selected="false">Projects</button>
+  <button role="tab" class="tab" data-target="articles" aria-selected="false">Articles</button>
+  <button role="tab" class="tab" data-target="videos" aria-selected="false">Videos</button>
+  <button role="tab" class="tab" data-target="links" aria-selected="false">Links</button>
+</nav>
+
+<main>
+
+<section id="about" class="panel is-active" role="tabpanel">
+  <h2>About</h2>
+  <p>
+    ソフトウェア開発で 20 年以上の実務経験があります。ゲーム・メタバース・モバイル・業務システムなど幅広い領域で開発に携わり、
+    現在は AI 駆動開発に注力しています。屋号 <strong>Rhythmcan</strong> として個人事業主の形態で活動中。
+  </p>
+  <p>
+    直近は Claude Code を用いた自動開発パイプラインを構築し、仕様策定・設計判断・品質管理に専念しながら、
+    RAG・MCP 連携を備えた Slack AI アシスタントとマルチソース対応の RAG ナレッジサービスを個人開発しています。
+  </p>
+</section>
+
+<section id="skills" class="panel" role="tabpanel" hidden>
+  <h2>Skills</h2>
+
+  <h3>技術領域</h3>
+  <ul class="skill-list">
+    <li><strong>AI / LLM</strong> — Claude Code, FastMCP, ChromaDB, BM25S, Scrapy, LangChain</li>
+    <li><strong>ゲームエンジン</strong> — Unreal Engine (UE5 / UE4 / Blueprint / C++), Unity (C#)</li>
+    <li><strong>モバイル</strong> — iOS (Swift, SwiftUI, RxSwift, Combine, Alamofire), Android (Kotlin, Architecture Components)</li>
+    <li><strong>言語</strong> — Python, TypeScript, C++, C#, Swift, Kotlin, Java, JavaScript, PHP</li>
+    <li><strong>クラウド / DB</strong> — Azure, Firebase, MySQL, Oracle, SQL Server, SQLite, Realm</li>
+    <li><strong>CI/CD / VCS</strong> — Jenkins, fastlane, GitHub Actions, Git, Perforce, SVN</li>
+    <li><strong>デザイン</strong> — Photoshop, Illustrator, Blender, After Effects</li>
+  </ul>
+
+  <h3>役割・得意なこと</h3>
+  <ul class="skill-list">
+    <li>チームリード・セクションリーダー経験</li>
+    <li>新人教育・メンバーフォロー</li>
+    <li>UI 実装・パフォーマンス最適化</li>
+    <li>CI/CD 環境構築・コード品質改善</li>
+    <li>新技術の独学 → 実務への展開</li>
+    <li>企画〜開発〜運用までの一気通貫対応</li>
+  </ul>
+</section>
+
+<section id="experience" class="panel" role="tabpanel" hidden>
+  <h2>Experience</h2>
+  <p class="section-note">これまでに携わった主なプロダクト種別です。</p>
+
+  <h3>エンタメ系</h3>
+  <div class="cards">
+    <article class="card">
+      <h4>メタバース / 3D アプリ開発</h4>
+      <p>UE5・Blueprint・C++ を使用。UI 実装・API 連携・マルチプレイヤーライブラリ組み込み・Jenkins による自動ビルド環境構築を担当。</p>
+    </article>
+    <article class="card">
+      <h4>コンシューマゲーム移植</h4>
+      <p>UE4 を用いた PC → 据え置き機への移植、海外版対応を担当。リリース直前のバグ対応を中心に品質向上に貢献。</p>
+    </article>
+    <article class="card">
+      <h4>VR 体験アプリ開発</h4>
+      <p>Unity + Oculus DK2 + Kinect を用いた VR アプリを、企画・開発・デザイン・運用まで一人で兼任。商用運用実績あり。</p>
+    </article>
+    <article class="card">
+      <h4>スマートフォン向けゲーム開発</h4>
+      <p>Unity・C# を用いたスマホゲームの企画から運用までを担当。オブジェクトプールの自前実装等でパフォーマンスを改善。</p>
+    </article>
+    <article class="card">
+      <h4>携帯ゲーム機向けゲーム開発</h4>
+      <p>C++ を用いた PSP・Nintendo DS 向けゲーム開発。動画再生ライブラリやシナリオ用スクリプト機能等を担当。</p>
+    </article>
+    <article class="card">
+      <h4>スマホゲーム関連アプリ</h4>
+      <p>Swift・RxSwift による長期参画型の機能開発。ミュージックプレイヤー・イベント管理機能等の主要機能を実装。</p>
+    </article>
+  </div>
+
+  <h3>業務系</h3>
+  <div class="cards">
+    <article class="card">
+      <h4>災害シミュレーションアプリ</h4>
+      <p>UE5 / Blueprint。単独でエンジンバージョン移行・エフェクト追加・データ変換処理の最適化を担当し、処理時間を大幅に短縮。</p>
+    </article>
+    <article class="card">
+      <h4>Fintech・決済系アプリ</h4>
+      <p>Swift・RxSwift・Alamofire を使用。チームリードとしてコード品質改善（SwiftLint 導入）や設計見直しに従事。</p>
+    </article>
+    <article class="card">
+      <h4>注文プラットフォームアプリ</h4>
+      <p>Swift + Kotlin（AppClip / インスタントアプリ）を用いたマルチプラットフォーム開発。リード・新人教育を担当。</p>
+    </article>
+    <article class="card">
+      <h4>業務システム開発</h4>
+      <p>ASP.NET・PHP による BtoB 業務システム複数件（業務管理・帳票・検索系）を、要件整理から運用まで一貫対応。</p>
+    </article>
+  </div>
+
+  <h3>個人開発 / 学習</h3>
+  <div class="cards">
+    <article class="card">
+      <h4>AI 駆動開発パイプライン</h4>
+      <p>Claude Code で仕様駆動開発を実践。コード生成を AI に委任し、仕様策定・設計判断・品質管理に専念する開発スタイルを確立。全自動開発パイプラインも構築。</p>
+    </article>
+    <article class="card">
+      <h4>LLM / 機械学習の実践</h4>
+      <p>AI エージェント構築・ローカル LLM・RAG・クラウド AI サービスを書籍ハンズオンで体系的に学習。強化学習によるゲーム自動攻略も実践。</p>
+    </article>
+    <article class="card">
+      <h4>AI コード生成によるゲーム開発実験</h4>
+      <p>Claude Code や GitHub Copilot を活用し、自身ではコードを書かず AI のみでゲーム開発がどこまで可能かを検証。Google Play リリースまで完了。</p>
+    </article>
+    <article class="card">
+      <h4>UE5 独学・デモゲーム制作</h4>
+      <p>未経験から体系的に学習し、Blueprint のみで 3D アクションのデモゲームを制作。学習過程を Zenn で公開し、UE 案件への参画につなげた。</p>
+    </article>
+    <article class="card">
+      <h4>Unity 公式学習プログラム修了</h4>
+      <p>Essentials・Junior Programmer・Creative Core・VR Development の 4 パスウェイを修了し、Unity 案件の受注につなげた。</p>
+    </article>
+  </div>
+</section>
+
+<section id="projects" class="panel" role="tabpanel" hidden>
+  <h2>Projects</h2>
+  <p class="section-note">GitHub で公開している個人開発プロジェクトです。</p>
+  <ul class="entry-list">
+    <li>
+      <a href="https://github.com/becky3/ai-assistant" target="_blank" rel="noopener"><strong>ai-assistant</strong></a>
+      <p>Slack 上で動作する AI アシスタント。RAG 検索・MCP 連携・複数 LLM の使い分けに対応。コード生成は Claude Code に委任し、仕様策定と品質管理に専念して開発。</p>
+    </li>
+    <li>
+      <a href="https://github.com/becky3/rag-knowledge" target="_blank" rel="noopener"><strong>rag-knowledge</strong></a>
+      <p>マルチソース対応の RAG ナレッジサービス（MCP サーバー）。ベクトル検索 + BM25 ハイブリッド検索、Web / Zenn / YouTube / PDF からの自動取り込みに対応。</p>
+    </li>
+  </ul>
+</section>
+
+<section id="articles" class="panel" role="tabpanel" hidden>
+  <h2>Articles</h2>
+  <p class="section-note">Zenn で公開している記事のピックアップです。</p>
+  <ul class="entry-list">
+    <li><a href="https://zenn.dev/rhythmcan/articles/32ca647bd2753c" target="_blank" rel="noopener"><strong>Issue にラベルを貼るだけ — 実装・レビュー・マージを全自動化するパイプラインを作った</strong></a></li>
+    <li><a href="https://zenn.dev/rhythmcan/articles/3bb5d6704359f5" target="_blank" rel="noopener"><strong>MCP：小さな規格の仕組みと特徴</strong></a></li>
+    <li><a href="https://zenn.dev/rhythmcan/articles/40da82caa3e788" target="_blank" rel="noopener"><strong>CLAUDE.md に「このファイルを読め」と書いても読まれない — @import 構文で解決する</strong></a></li>
+    <li><a href="https://zenn.dev/rhythmcan/articles/b65892fa13dbf4" target="_blank" rel="noopener"><strong>安野貴博氏のブロードリスニングを支える技術スタックを動画の発言から推測してみた</strong></a></li>
+    <li><a href="https://zenn.dev/rhythmcan/articles/5ca92c9065f880" target="_blank" rel="noopener"><strong>Anthropic Claude Cowork 活用事例レポート</strong></a></li>
+    <li><a href="https://zenn.dev/rhythmcan/articles/504678bdd8b5bf" target="_blank" rel="noopener"><strong>UE5.1 で 3D アクション「ORION CREST」を制作</strong></a></li>
+  </ul>
+</section>
+
+<section id="videos" class="panel" role="tabpanel" hidden>
+  <h2>Videos</h2>
+  <p class="section-note">YouTube で公開している動画のピックアップです。</p>
+  <div class="youtube-grid">
+    <a href="https://www.youtube.com/watch?v=mDQcVP-nUIU" target="_blank" rel="noopener" class="youtube-card">
+      <div class="youtube-thumbnail">
+        <img src="https://img.youtube.com/vi/mDQcVP-nUIU/mqdefault.jpg" alt="ORION CREST — Unreal Engine 練習用デモ作品" loading="lazy">
+        <div class="youtube-play-icon">
+          <svg viewBox="0 0 68 48" width="68" height="48">
+            <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,0,34,0,34,0S12.21,0,6.9,1.55C3.97,2.33,2.27,4.81,1.48,7.74C0,13.05,0,24,0,24s0,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19C12.21,48,34,48,34,48s21.79,0,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C68,34.95,68,24,68,24S68,13.05,66.52,7.74z" fill="#f00"></path>
+            <path d="M 26,16 46,24 26,32 z" fill="#fff"></path>
+          </svg>
+        </div>
+      </div>
+      <div class="youtube-info">
+        <div class="youtube-title">ORION CREST — Unreal Engine 練習用デモ作品</div>
+      </div>
+    </a>
+    <a href="https://www.youtube.com/watch?v=yfRkCPVqEJ0" target="_blank" rel="noopener" class="youtube-card">
+      <div class="youtube-thumbnail">
+        <img src="https://img.youtube.com/vi/yfRkCPVqEJ0/mqdefault.jpg" alt="【UE5 制作】キャラクターの移動、アニメーション、キー入力" loading="lazy">
+        <div class="youtube-play-icon">
+          <svg viewBox="0 0 68 48" width="68" height="48">
+            <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,0,34,0,34,0S12.21,0,6.9,1.55C3.97,2.33,2.27,4.81,1.48,7.74C0,13.05,0,24,0,24s0,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19C12.21,48,34,48,34,48s21.79,0,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C68,34.95,68,24,68,24S68,13.05,66.52,7.74z" fill="#f00"></path>
+            <path d="M 26,16 46,24 26,32 z" fill="#fff"></path>
+          </svg>
+        </div>
+      </div>
+      <div class="youtube-info">
+        <div class="youtube-title">【UE5 制作】キャラクターの移動、アニメーション、キー入力（Enhanced Input / Blend Space）</div>
+      </div>
+    </a>
+    <a href="https://www.youtube.com/watch?v=GuFBDpzH3ck" target="_blank" rel="noopener" class="youtube-card">
+      <div class="youtube-thumbnail">
+        <img src="https://img.youtube.com/vi/GuFBDpzH3ck/mqdefault.jpg" alt="【UE5.2】PCG の簡単な使い方" loading="lazy">
+        <div class="youtube-play-icon">
+          <svg viewBox="0 0 68 48" width="68" height="48">
+            <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,0,34,0,34,0S12.21,0,6.9,1.55C3.97,2.33,2.27,4.81,1.48,7.74C0,13.05,0,24,0,24s0,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19C12.21,48,34,48,34,48s21.79,0,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C68,34.95,68,24,68,24S68,13.05,66.52,7.74z" fill="#f00"></path>
+            <path d="M 26,16 46,24 26,32 z" fill="#fff"></path>
+          </svg>
+        </div>
+      </div>
+      <div class="youtube-info">
+        <div class="youtube-title">【UE5.2】PCG の簡単な使い方</div>
+      </div>
+    </a>
+    <a href="https://www.youtube.com/watch?v=KZHNyESAyw4" target="_blank" rel="noopener" class="youtube-card">
+      <div class="youtube-thumbnail">
+        <img src="https://img.youtube.com/vi/KZHNyESAyw4/mqdefault.jpg" alt="【UE5.2】PCG の使い方 02「木の周りに草を生やす」" loading="lazy">
+        <div class="youtube-play-icon">
+          <svg viewBox="0 0 68 48" width="68" height="48">
+            <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,0,34,0,34,0S12.21,0,6.9,1.55C3.97,2.33,2.27,4.81,1.48,7.74C0,13.05,0,24,0,24s0,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19C12.21,48,34,48,34,48s21.79,0,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C68,34.95,68,24,68,24S68,13.05,66.52,7.74z" fill="#f00"></path>
+            <path d="M 26,16 46,24 26,32 z" fill="#fff"></path>
+          </svg>
+        </div>
+      </div>
+      <div class="youtube-info">
+        <div class="youtube-title">【UE5.2】PCG の使い方 #02「木の周りに草を生やす」</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section id="links" class="panel" role="tabpanel" hidden>
+  <h2>Links</h2>
+  <ul class="link-list">
+    <li><a href="https://github.com/becky3" target="_blank" rel="noopener">GitHub</a></li>
+    <li><a href="https://zenn.dev/rhythmcan" target="_blank" rel="noopener">Zenn</a></li>
+    <li><a href="https://qiita.com/beckyJPN" target="_blank" rel="noopener">Qiita</a></li>
+    <li><a href="https://www.youtube.com/@rhythmcan" target="_blank" rel="noopener">YouTube</a></li>
+    <li><a href="https://lapras.com/public/CIURWRK" target="_blank" rel="noopener">LAPRAS</a></li>
+    <li><a href="https://bsky.app/profile/rhythmcan.bsky.social" target="_blank" rel="noopener">Bluesky</a></li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <p>&copy; becky / Rhythmcan</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

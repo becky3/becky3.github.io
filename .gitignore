@@ -1,0 +1,28 @@
+# Working directory for temporary files / handoff notes
+.tmp/
+
+# Claude Code local settings
+.claude/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*~
+
+# Logs
+*.log
+
+# Node (in case of future tooling)
+node_modules/
+
+# Python cache (in case of future tooling)
+__pycache__/
+*.pyc

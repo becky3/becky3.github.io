@@ -14,6 +14,11 @@
   --color-link-hover: #312e81;
   --gradient-brand: #6366f1, #ec4899;
   --header-gradient: linear-gradient(135deg, #eef2ff 0%, #fdf4ff 50%, #fff7ed 100%);
+  --header-text: #1f2328;
+  --header-text-muted: #6a737d;
+  --header-social-bg: rgba(255, 255, 255, 0.7);
+  --header-social-text: #4b5563;
+  --header-social-border: var(--color-border);
   --max-width: 760px;
   --radius: 10px;
   --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.03);
@@ -43,10 +48,294 @@ body {
 
 /* Header */
 header.profile {
+  position: relative;
+  overflow: hidden;
   background: var(--header-gradient);
   padding: 56px 20px 40px;
   text-align: center;
   border-bottom: 1px solid var(--color-border);
+  transition: background 0.6s ease;
+}
+
+header.profile h1,
+header.profile .title {
+  position: relative;
+  z-index: 2;
+}
+
+header.profile h1 {
+  color: var(--header-text);
+}
+
+header.profile .title {
+  color: var(--header-text-muted);
+}
+
+.avatar,
+.social-links {
+  position: relative;
+  z-index: 2;
+}
+
+/* Time-band: ヘッダー背景の時間連動切替 */
+body[data-time-band="early-morning"] {
+  --header-gradient: linear-gradient(135deg, #ffe9d6 0%, #ffd1dc 55%, #fff4e6 100%);
+}
+
+body[data-time-band="forenoon"] {
+  --header-gradient: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 50%, #ffffff 100%);
+}
+
+body[data-time-band="afternoon"] {
+  --header-gradient: linear-gradient(180deg, #60a5fa 0%, #93c5fd 55%, #dbeafe 100%);
+}
+
+body[data-time-band="evening"] {
+  --header-gradient: linear-gradient(135deg, #fed7aa 0%, #fbcfe8 55%, #c4b5fd 100%);
+}
+
+body[data-time-band="night"] {
+  --header-gradient: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4c1d95 100%);
+  --header-text: #f5f3ff;
+  --header-text-muted: #c7d2fe;
+  --header-social-bg: rgba(255, 255, 255, 0.12);
+  --header-social-text: #e0e7ff;
+  --header-social-border: rgba(255, 255, 255, 0.2);
+}
+
+body[data-time-band="late-night"] {
+  --header-gradient: linear-gradient(135deg, #020617 0%, #0f172a 50%, #1e1b4b 100%);
+  --header-text: #f8fafc;
+  --header-text-muted: #94a3b8;
+  --header-social-bg: rgba(255, 255, 255, 0.08);
+  --header-social-text: #cbd5e1;
+  --header-social-border: rgba(255, 255, 255, 0.16);
+}
+
+/* 太陽（早朝〜夕方） — 月と同じ右上位置で色・縦位置を時間帯で変える */
+.sun {
+  position: absolute;
+  top: 26px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  opacity: 0;
+  transform: translateY(-8px) scale(0.8);
+  transition: opacity 0.6s ease, transform 0.6s ease, top 0.8s ease, background 0.8s ease, box-shadow 0.8s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+body[data-time-band="early-morning"] .sun {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  top: 80px;
+  background: radial-gradient(circle at 35% 35%, #fff5d6 0%, #fdba74 65%, #fb923c 100%);
+  box-shadow: 0 0 28px rgba(251, 146, 60, 0.5), 0 0 60px rgba(254, 215, 170, 0.4);
+}
+
+body[data-time-band="forenoon"] .sun {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  top: 22px;
+  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #fef9c3 50%, #facc15 100%);
+  box-shadow: 0 0 24px rgba(250, 204, 21, 0.55), 0 0 60px rgba(254, 240, 138, 0.35);
+}
+
+body[data-time-band="afternoon"] .sun {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  top: 32px;
+  background: radial-gradient(circle at 35% 35%, #fffbeb 0%, #fde68a 55%, #f59e0b 100%);
+  box-shadow: 0 0 22px rgba(245, 158, 11, 0.45), 0 0 50px rgba(253, 230, 138, 0.35);
+}
+
+body[data-time-band="evening"] .sun {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  top: 110px;
+  background: radial-gradient(circle at 35% 35%, #fde68a 0%, #fb7185 55%, #be123c 100%);
+  box-shadow: 0 0 32px rgba(244, 63, 94, 0.55), 0 0 70px rgba(251, 113, 133, 0.4);
+}
+
+/* 雲 — 早朝〜夕方でゆるやかに流れる */
+.clouds {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  z-index: 1;
+  overflow: hidden;
+}
+
+body[data-time-band="early-morning"] .clouds,
+body[data-time-band="forenoon"] .clouds,
+body[data-time-band="afternoon"] .clouds,
+body[data-time-band="evening"] .clouds {
+  opacity: 1;
+}
+
+.cloud {
+  position: absolute;
+  width: 90px;
+  height: 26px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow:
+    18px -10px 0 -4px rgba(255, 255, 255, 0.85),
+    -22px -6px 0 -6px rgba(255, 255, 255, 0.85),
+    32px 4px 0 -8px rgba(255, 255, 255, 0.85);
+  filter: blur(0.4px);
+  animation: cloud-drift 60s linear infinite;
+}
+
+.cloud--1 { top: 40px;  left: -120px; transform: scale(0.9); animation-duration: 70s; animation-delay: -10s; }
+.cloud--2 { top: 100px; left: -120px; transform: scale(0.7); animation-duration: 95s; animation-delay: -55s; opacity: 0.85; }
+.cloud--3 { top: 170px; left: -120px; transform: scale(1.05); animation-duration: 110s; animation-delay: -30s; opacity: 0.75; }
+
+@keyframes cloud-drift {
+  from { transform: translateX(0)         scale(var(--cloud-scale, 1)); }
+  to   { transform: translateX(calc(100vw + 240px)) scale(var(--cloud-scale, 1)); }
+}
+
+/* 早朝の朝もや — 上から下へ薄れる白いベール */
+.haze {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.15) 60%, transparent 100%);
+  transition: opacity 0.8s ease;
+  z-index: 1;
+}
+
+body[data-time-band="early-morning"] .haze { opacity: 1; }
+
+/* 夕方の夕焼け染め — 下から赤紫のグラデーション */
+.dusk-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(0deg, rgba(190, 18, 60, 0.28) 0%, rgba(244, 63, 94, 0.15) 30%, transparent 70%);
+  transition: opacity 0.8s ease;
+  z-index: 1;
+}
+
+body[data-time-band="evening"] .dusk-glow { opacity: 1; }
+
+/* 鳥のシルエット — 早朝・夕方に右から左へ横切る */
+.birds {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  z-index: 1;
+  overflow: hidden;
+}
+
+body[data-time-band="early-morning"] .birds,
+body[data-time-band="evening"] .birds {
+  opacity: 1;
+}
+
+body[data-time-band="evening"] .birds { color: rgba(50, 20, 60, 0.55); }
+body[data-time-band="early-morning"] .birds { color: rgba(120, 53, 15, 0.45); }
+
+.bird {
+  position: absolute;
+  width: 24px;
+  height: 11px;
+  animation: bird-fly 14s linear infinite, bird-flap 0.5s ease-in-out infinite alternate;
+}
+
+.bird--1 { top: 38px;  animation-duration: 16s, 0.45s; animation-delay: -2s, 0s;   }
+.bird--2 { top: 70px;  animation-duration: 19s, 0.55s; animation-delay: -10s, -0.2s; transform: scale(0.8); }
+.bird--3 { top: 105px; animation-duration: 22s, 0.6s;  animation-delay: -16s, -0.4s; transform: scale(0.9); }
+
+@keyframes bird-flap {
+  from { transform: scaleY(1); }
+  to   { transform: scaleY(0.55); }
+}
+
+@keyframes bird-fly {
+  0%   { left: calc(100% + 30px); }
+  100% { left: -30px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cloud, .bird { animation: none; }
+}
+
+/* 月アイコン（夜・深夜のみ） */
+.moon {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fef9c3 0%, #fde68a 50%, #f59e0b 100%);
+  box-shadow:
+    0 0 18px rgba(254, 240, 138, 0.55),
+    inset -6px -4px 0 rgba(0, 0, 0, 0.18);
+  opacity: 0;
+  transform: translateY(-6px) scale(0.85);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+body[data-time-band="night"] .moon,
+body[data-time-band="late-night"] .moon {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+body[data-time-band="late-night"] .moon {
+  background: radial-gradient(circle at 35% 35%, #f1f5f9 0%, #cbd5e1 55%, #64748b 100%);
+  box-shadow:
+    0 0 22px rgba(226, 232, 240, 0.5),
+    inset -7px -4px 0 rgba(0, 0, 0, 0.28);
+}
+
+/* 星パーティクル（夜・深夜のみ） */
+.stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  z-index: 1;
+}
+
+body[data-time-band="night"] .stars,
+body[data-time-band="late-night"] .stars {
+  opacity: 1;
+}
+
+.stars span {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+  animation: star-twinkle 3s ease-in-out infinite;
+}
+
+@keyframes star-twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50%      { opacity: 1;   transform: scale(1.1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stars span { animation: none; opacity: 0.7; }
+  header.profile { transition: none; }
+  .moon { transition: none; }
 }
 
 .avatar {
@@ -149,7 +438,6 @@ header.profile h1 {
 }
 
 header.profile .title {
-  color: var(--color-muted);
   margin: 0;
   font-size: 0.95rem;
   font-weight: 500;
@@ -171,11 +459,11 @@ header.profile .title {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid var(--color-border);
-  color: #4b5563;
+  background: var(--header-social-bg);
+  border: 1px solid var(--header-social-border);
+  color: var(--header-social-text);
   text-decoration: none;
-  transition: all 0.2s;
+  transition: background 0.3s, color 0.3s, border-color 0.3s, transform 0.2s, box-shadow 0.2s;
   box-shadow: var(--shadow-sm);
 }
 
@@ -653,4 +941,93 @@ footer {
 
 footer p {
   margin: 0;
+}
+
+/* Debug: 時間帯切替UI（?debug=1 または localhost のみ JS から表示） */
+.time-debug {
+  position: fixed;
+  right: 12px;
+  bottom: 12px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 10px;
+  background: rgba(15, 23, 42, 0.88);
+  color: #f1f5f9;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+  user-select: none;
+}
+
+.time-debug__row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.time-debug__row + .time-debug__row {
+  justify-content: flex-end;
+}
+
+.time-debug__label {
+  opacity: 0.7;
+  font-size: 0.7rem;
+}
+
+.time-debug__value {
+  font-weight: 700;
+  min-width: 8em;
+}
+
+.time-debug button {
+  appearance: none;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.08);
+  color: #f1f5f9;
+  font: inherit;
+  padding: 3px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.time-debug button:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.time-debug-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 80px;
+  transform: translateX(-50%);
+  z-index: 10000;
+  padding: 8px 16px;
+  background: rgba(15, 23, 42, 0.92);
+  color: #f1f5f9;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  animation: time-debug-toast-in 0.25s ease-out forwards;
+  pointer-events: none;
+}
+
+.time-debug-toast.is-leaving {
+  animation: time-debug-toast-out 0.3s ease-in forwards;
+}
+
+@keyframes time-debug-toast-in {
+  from { opacity: 0; transform: translate(-50%, 8px); }
+  to   { opacity: 1; transform: translate(-50%, 0); }
+}
+
+@keyframes time-debug-toast-out {
+  to { opacity: 0; transform: translate(-50%, -4px); }
+}
+
+footer {
+  -webkit-tap-highlight-color: transparent;
 }

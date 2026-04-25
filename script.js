@@ -35,4 +35,18 @@
   if (hash && document.getElementById(hash)) {
     activate(hash);
   }
+
+  // Avatar tap-to-spin (案C: ウィンク + Z軸360°)
+  var avatar = document.querySelector('.avatar');
+  if (avatar) {
+    avatar.addEventListener('click', function () {
+      if (avatar.classList.contains('is-spinning')) return;
+      avatar.classList.add('is-spinning');
+      window.setTimeout(function () {
+        avatar.classList.remove('is-spinning');
+      }, 700);
+    });
+
+    avatar.addEventListener('contextmenu', function (e) { e.preventDefault(); });
+  }
 })();

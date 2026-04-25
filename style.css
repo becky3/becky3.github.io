@@ -50,12 +50,95 @@ header.profile {
 }
 
 .avatar {
+  position: relative;
   display: block;
+  width: 128px;
+  height: 128px;
   margin: 0 auto 16px;
   border-radius: 50%;
-  padding: 4px;
-  background: linear-gradient(135deg, var(--gradient-brand), #f59e0b);
   box-shadow: var(--shadow-md);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  cursor: pointer;
+}
+
+.avatar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    #6366f1 0deg,
+    #ec4899 90deg,
+    #f59e0b 160deg,
+    #fde68a 175deg,
+    #ffffff 180deg,
+    #fde68a 185deg,
+    #f59e0b 200deg,
+    #ec4899 270deg,
+    #6366f1 360deg
+  );
+  animation: avatar-ring-spin 4s linear infinite;
+  z-index: 0;
+}
+
+@keyframes avatar-ring-spin {
+  to { transform: rotate(360deg); }
+}
+
+.avatar-img {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  z-index: 1;
+  display: block;
+  width: calc(100% - 8px);
+  height: calc(100% - 8px);
+  border-radius: 50%;
+  object-fit: cover;
+  transform-origin: center center;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-drag: none;
+  animation: avatar-wink 4s ease-in-out infinite;
+}
+
+@keyframes avatar-wink {
+  0%, 12%, 100% { transform: rotate(0deg); }
+  3% { transform: rotate(-12deg); }
+  6% { transform: rotate(10deg); }
+  9% { transform: rotate(-4deg); }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .avatar:hover .avatar-img {
+    animation: avatar-spin-z 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+}
+
+.avatar.is-spinning .avatar-img {
+  animation: avatar-spin-z 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes avatar-spin-z {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .avatar::before { animation: none; }
+  .avatar-img,
+  .avatar:hover .avatar-img,
+  .avatar.is-spinning .avatar-img {
+    animation: none;
+    transform: none;
+  }
 }
 
 header.profile h1 {

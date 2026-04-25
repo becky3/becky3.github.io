@@ -12,12 +12,15 @@
   <meta name="twitter:card" content="summary">
   <title>becky — Portfolio</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="stylesheet" href="style.css">
+  <script>document.write('<link rel="stylesheet" href="style.css?v=' + Date.now() + '">');</script>
+  <noscript><link rel="stylesheet" href="style.css"></noscript>
 </head>
 <body>
 
 <header class="profile">
-  <img class="avatar" src="https://github.com/becky3.png" alt="avatar" width="120" height="120">
+  <div class="avatar">
+    <img class="avatar-img" src="https://github.com/becky3.png" alt="avatar" width="120" height="120" draggable="false">
+  </div>
   <h1>becky</h1>
   <p class="title">フリーランスエンジニア</p>
   <div class="social-links">
@@ -368,6 +371,6 @@
   <p>&copy; becky / Rhythmcan</p>
 </footer>
 
-<script src="script.js"></script>
+<script>document.write('<script src="script.js?v=' + Date.now() + '"><\/script>');</script>
 </body>
 </html>

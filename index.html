@@ -12,7 +12,14 @@
   <meta name="twitter:card" content="summary">
   <title>becky — Portfolio</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="stylesheet" href="style.css">
+  <script>
+    // 本番ドメイン以外（localhost / LAN IP / file:// 等）では Date.now() を付与してキャッシュを回避する
+    (function () {
+      var v = location.hostname === 'becky3.github.io' ? '' : '?v=' + Date.now();
+      document.write('<link rel="stylesheet" href="style.css' + v + '">');
+    })();
+  </script>
+  <noscript><link rel="stylesheet" href="style.css"></noscript>
 </head>
 <body>
 
@@ -391,6 +398,12 @@
   <p>&copy; becky / Rhythmcan</p>
 </footer>
 
-<script src="script.js"></script>
+<script>
+  // 本番ドメイン以外（localhost / LAN IP / file:// 等）では Date.now() を付与してキャッシュを回避する
+  (function () {
+    var v = location.hostname === 'becky3.github.io' ? '' : '?v=' + Date.now();
+    document.write('<script src="script.js' + v + '"><\/script>');
+  })();
+</script>
 </body>
 </html>

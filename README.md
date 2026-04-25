@@ -7,13 +7,17 @@ becky のポートフォリオサイト。GitHub Pages で公開。
 ## ファイル構成
 
 | ファイル | 説明 |
-|---------|------|
+| --- | --- |
 | `index.html` | エントリポイント。About / Experience / Works / Contact の4タブ構成 |
 | `style.css` | スタイル定義（デザイントークン・時間帯演出・アバターアニメ含む） |
 | `script.js` | タブ切替・アバター操作・時間帯判定・デバッグUI |
 | `favicon.svg` | サイトアイコン |
 
 ビルドステップなし。HTML/CSS/JS をそのまま GitHub Pages から配信。
+
+## 開発・運用ルール
+
+- Git 運用: [Git 運用ルール](docs/git-workflow.md)（main 単独 + PR 必須）
 
 ## 演出
 
@@ -22,7 +26,7 @@ becky のポートフォリオサイト。GitHub Pages で公開。
 アクセス時刻に応じてヘッダー背景・装飾要素を6パターン切替する。1分ごとに再判定。
 
 | 時間帯 | 範囲 | 装飾 |
-|---|---|---|
+| --- | --- | --- |
 | 早朝 | 5-9時 | 朝焼けピンク〜オレンジ + 朝もや + ピンク雲 + 低めの淡オレンジの太陽 + 鳥のシルエット |
 | 午前 | 9-12時 | 淡い水色 + 白い雲 + 高い位置の明るい黄色の太陽 |
 | 午後 | 12-17時 | 鮮やかな青空 + 白い雲 + 中段の淡オレンジの太陽 |
@@ -35,7 +39,7 @@ becky のポートフォリオサイト。GitHub Pages で公開。
 ### アバター
 
 | 操作 | 効果 |
-|---|---|
+| --- | --- |
 | 待機 | リング（カラフルな縁）が常時回転、4秒ごとにウィンク（左右クイック振動） |
 | ホバー（PC） | Z軸360°回転（cubic-bezier overshoot） |
 | タップ（スマホ） | Z軸360°回転 |
@@ -47,7 +51,7 @@ becky のポートフォリオサイト。GitHub Pages で公開。
 ### 表示方法
 
 | 方法 | 永続性 |
-|---|---|
+| --- | --- |
 | URL に `?debug=1` を付与 | URLパラメータ依存（リロードしても付いていれば有効） |
 | フッター「© becky / Rhythmcan」を **800ms 以内に3連タップ** | リロードで解除（in-memory のみ） |
 
@@ -55,6 +59,7 @@ becky のポートフォリオサイト。GitHub Pages で公開。
 
 ### 撮影・検証用パラメータ
 
-`?band=<id>` で初期表示の時間帯を強制指定する。`<id>` は `early-morning` / `forenoon` / `afternoon` / `evening` / `night` / `late-night`。
+`?band=<id>` で初期表示の時間帯を強制指定する。
+`<id>` は `early-morning` / `forenoon` / `afternoon` / `evening` / `night` / `late-night`。
 
 例: <https://becky3.github.io/?band=night>

@@ -30,17 +30,16 @@
 ## 3. PR の base とマージ方式
 
 - PR の base は常に `main`
-- マージ方式は **通常マージ（Merge commit）** を既定とする
-  - GitHub 側で squash マージは無効化済み（`allow_squash_merge=false`）
+- マージは **Merge commit** で行う
 
 ## 4. マージ後の後片付け
 
 PR マージ後の作業ブランチ・worktree の削除は `/handoff` スキルの手順に従う。
-GitHub 側のリモートブランチは `delete_branch_on_merge=true` 設定により自動削除される。
+GitHub 側のリモートブランチは、マージ後に自動削除する設定にしている。
 
 ## 5. worktree 運用
 
-並行作業前提のため、作業ブランチの作成は git-worktree で行う（共通ルールどおり）。本リポジトリでの命名は以下:
+並行作業前提のため、作業ブランチの作成は `git worktree` で行う（共通ルールどおり）。本リポジトリでの命名は以下:
 
 ```bash
 git fetch origin

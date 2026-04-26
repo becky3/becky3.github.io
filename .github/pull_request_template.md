@@ -20,5 +20,5 @@
 
 ## 関連 Issue
 
-<!-- Issue 番号がない場合は「Closes #」行ごと削除 -->
-Closes #
+<!-- Issue 番号がない場合は「Closes #<Issue番号>」行ごと削除 -->
+Closes #<Issue番号>

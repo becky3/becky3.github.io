@@ -19,6 +19,12 @@ becky のポートフォリオサイト。GitHub Pages で公開。
 
 - Git 運用: [Git 運用ルール](docs/git-workflow.md)（main 単独 + PR 必須）
 
+### ドキュメント lint
+
+- 設定ファイル: [`.markdownlint-cli2.jsonc`](.markdownlint-cli2.jsonc)
+- ローカル実行: `npx markdownlint-cli2` または `/doc-lint` スキル
+- CI / pre-commit での自動実行は設定していない
+
 ## 演出
 
 ### 時間帯連動ヘッダー

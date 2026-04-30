@@ -19,6 +19,7 @@ becky のポートフォリオサイト。GitHub Pages で公開。
 ## 開発・運用ルール
 
 - Git 運用: [Git 運用ルール](docs/git-workflow.md)（main 単独 + PR 必須）
+- QA 手順: [QA 手順書](docs/qa.md)（PR マージ前にヘッドレススクリーンショット撮影 + ユーザーによる変更確認）
 
 ### ドキュメント lint
 

@@ -31,3 +31,7 @@ __pycache__/
 
 # Claude Code /auto-finalize 認可フラグ
 .pr-creation-authorized
+
+# Claude Code /aidlc / /plan-work 一時ドキュメント
+aidlc-docs/
+aidlc-archive/

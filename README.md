@@ -6,12 +6,13 @@ becky のポートフォリオサイト。GitHub Pages で公開。
 
 ## ファイル構成
 
-| ファイル | 説明 |
+| ファイル / ディレクトリ | 説明 |
 | --- | --- |
 | `index.html` | エントリポイント。About / Experience / Works / Contact の4タブ構成 |
 | `style.css` | スタイル定義（デザイントークン・時間帯演出・アバターアニメ含む） |
 | `script.js` | タブ切替・アバター操作・時間帯判定・デバッグUI |
 | `favicon.svg` | サイトアイコン |
+| `tools/` | 開発補助スクリプト（サイト本体には含まれない） |
 
 ビルドステップなし。HTML/CSS/JS をそのまま GitHub Pages から配信。
 
@@ -24,6 +25,59 @@ becky のポートフォリオサイト。GitHub Pages で公開。
 - 設定ファイル: [`.markdownlint-cli2.jsonc`](.markdownlint-cli2.jsonc)
 - ローカル実行: `npx markdownlint-cli2` または `/doc-lint` スキル
 - CI / pre-commit での自動実行は設定していない
+
+### スクリーンショット撮影
+
+ヘッドレス Chrome で任意の URL を撮影する汎用スクリプト。UI 試行錯誤時の繰り返し作業を想定。
+本サイト固有のロジックは持たないため、他プロジェクトでも流用可能。
+
+- スクリプト: [`tools/screenshot.sh`](tools/screenshot.sh)
+- 前提: Google Chrome または Chromium がインストール済みであること。Bash 実行環境（Windows では Git Bash 等）
+
+Chrome 実行ファイルは `CHROME` 環境変数 / `PATH` / Windows 既定インストール先 / macOS 既定インストール先の順で自動検出する。検出に失敗した場合は `--chrome <PATH>` で明示指定する。
+
+#### 使い方
+
+```bash
+# 単発撮影 → .tmp/screenshots/<yyyyMMdd_HHmmss>.png
+tools/screenshot.sh https://becky3.github.io/
+
+# ファイル名指定 → .tmp/screenshots/homepage.png
+tools/screenshot.sh --name homepage https://becky3.github.io/
+
+# 一括撮影（時間帯 6 種）→ .tmp/screenshots/<timestamp>_<name>.png
+tools/screenshot.sh \
+  --names early-morning,forenoon,afternoon,evening,night,late-night \
+  "https://becky3.github.io/?band=early-morning" \
+  "https://becky3.github.io/?band=forenoon" \
+  "https://becky3.github.io/?band=afternoon" \
+  "https://becky3.github.io/?band=evening" \
+  "https://becky3.github.io/?band=night" \
+  "https://becky3.github.io/?band=late-night"
+```
+
+#### オプション
+
+| オプション | 既定値 | 説明 |
+| --- | --- | --- |
+| `-o`, `--output-dir <DIR>` | `.tmp/screenshots` | 出力ディレクトリ |
+| `-n`, `--name <NAME>` | timestamp | 単発撮影時のファイル名（拡張子なし）。`[A-Za-z0-9._-]` のみ許可。複数 URL 時はエラー |
+| `--names <N1,N2,...>` | （連番） | 一括撮影時のファイル名サフィックス。URL 数と一致 + 重複禁止。文字制約は `--name` と同じ |
+| `-w`, `--viewport <WxH>` | `1280x800` | ビューポートサイズ |
+| `-t`, `--virtual-time-budget <MS>` | `4000` | フォント・画像読み込み待機 ms |
+| `--no-sandbox` | 無効 | Chrome に `--no-sandbox` を付与（Linux / CI 環境向け、opt-in） |
+| `--chrome <PATH>` | 自動検出 | Chrome 実行ファイルパス（`CHROME` 環境変数も可） |
+
+ファイル名規則:
+
+| モード | 既定 | `--name` / `--names` 指定時 |
+| --- | --- | --- |
+| 単発 (URL 1 件) | `<timestamp>.png` | `<NAME>.png` |
+| 一括 (URL N 件) | `<timestamp>_<index>.png`（1 始まり） | `<timestamp>_<NAME>.png` |
+
+timestamp フォーマット: `yyyyMMdd_HHmmss`。
+
+一括撮影は fail-fast。1 件失敗した時点で残りの URL は撮影せずに終了する。撮影済みファイルはそのまま残る。
 
 ## 演出
 

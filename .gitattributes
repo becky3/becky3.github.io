@@ -1,0 +1,2 @@
+# シェルスクリプトは Git Bash / Linux / macOS で実行されるため必ず LF を維持する
+*.sh text eol=lf

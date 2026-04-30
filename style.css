@@ -112,7 +112,7 @@ body[data-time-band="late-night"] {
   --header-social-border: rgba(255, 255, 255, 0.16);
 }
 
-/* 太陽（早朝〜夕方） — 月と同じ右上位置で色・縦位置を時間帯で変える */
+/* 太陽（早朝〜夕方） — 月と同じ右上位置で色・縦位置を時間帯で変える。早朝・夕方は「沈む夕日／日の出」表現のため下端基準（calc(100% - N)）で配置する */
 .sun {
   position: absolute;
   top: 26px;
@@ -130,7 +130,7 @@ body[data-time-band="late-night"] {
 body[data-time-band="early-morning"] .sun {
   opacity: 1;
   transform: translateY(0) scale(1);
-  top: 80px;
+  top: calc(100% - 80px);
   background: radial-gradient(circle at 35% 35%, #fff5d6 0%, #fdba74 65%, #fb923c 100%);
   box-shadow: 0 0 28px rgba(251, 146, 60, 0.5), 0 0 60px rgba(254, 215, 170, 0.4);
 }
@@ -154,7 +154,7 @@ body[data-time-band="afternoon"] .sun {
 body[data-time-band="evening"] .sun {
   opacity: 1;
   transform: translateY(0) scale(1);
-  top: 110px;
+  top: calc(100% - 22px);
   background: radial-gradient(circle at 35% 35%, #fde68a 0%, #fb7185 55%, #be123c 100%);
   box-shadow: 0 0 32px rgba(244, 63, 94, 0.55), 0 0 70px rgba(251, 113, 133, 0.4);
 }

@@ -1,8 +1,18 @@
 #!/usr/bin/env bash
 # 汎用 headless Chrome スクリーンショット撮影スクリプト。
-# 既知のハマりポイント（絶対パス・URL hash・virtual-time-budget・実行ファイル解決）を
+# 既知のハマりポイント（絶対パス・virtual-time-budget・実行ファイル解決）を
 # デフォルトで解消する。
 set -euo pipefail
+
+# 値を取るオプション用に「次の引数があるか」を検査する。
+require_value() {
+  local opt="$1" remaining="$2"
+  if [ "$remaining" -lt 2 ]; then
+    echo "ERROR: option $opt requires a value" >&2
+    usage >&2
+    exit 2
+  fi
+}
 
 usage() {
   cat <<'EOF'
@@ -98,13 +108,13 @@ NAME_PATTERN='^[A-Za-z0-9._-]+$'
 
 while [ $# -gt 0 ]; do
   case "$1" in
-    -o|--output-dir) OUTPUT_DIR="$2"; shift 2 ;;
-    -n|--name) NAME="$2"; shift 2 ;;
-    --names) NAMES="$2"; shift 2 ;;
-    -w|--viewport) VIEWPORT="$2"; shift 2 ;;
-    -t|--virtual-time-budget) VTB="$2"; shift 2 ;;
+    -o|--output-dir) require_value "$1" "$#"; OUTPUT_DIR="$2"; shift 2 ;;
+    -n|--name) require_value "$1" "$#"; NAME="$2"; shift 2 ;;
+    --names) require_value "$1" "$#"; NAMES="$2"; shift 2 ;;
+    -w|--viewport) require_value "$1" "$#"; VIEWPORT="$2"; shift 2 ;;
+    -t|--virtual-time-budget) require_value "$1" "$#"; VTB="$2"; shift 2 ;;
     --no-sandbox) NO_SANDBOX=1; shift ;;
-    --chrome) CHROME_PATH="$2"; shift 2 ;;
+    --chrome) require_value "$1" "$#"; CHROME_PATH="$2"; shift 2 ;;
     -h|--help) usage; exit 0 ;;
     --) shift; while [ $# -gt 0 ]; do URLS+=("$1"); shift; done ;;
     -*) echo "ERROR: unknown option: $1" >&2; usage >&2; exit 2 ;;

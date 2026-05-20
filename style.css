@@ -452,6 +452,15 @@ header.profile .title {
   margin-top: 20px;
 }
 
+.icon-hatena {
+  display: inline-block;
+  width: 42px;
+  height: 42px;
+  background-color: currentColor;
+  -webkit-mask: url('assets/hatenablog-logo.svg') no-repeat center / contain;
+          mask: url('assets/hatenablog-logo.svg') no-repeat center / contain;
+}
+
 .social-links a {
   display: flex;
   justify-content: center;
@@ -884,6 +893,11 @@ section p {
   .social-links a svg {
     width: 16px;
     height: 16px;
+  }
+
+  .social-links a .icon-hatena {
+    width: 33px;
+    height: 33px;
   }
 
   .youtube-grid {
